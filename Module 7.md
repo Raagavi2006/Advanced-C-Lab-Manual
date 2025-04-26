@@ -16,13 +16,30 @@ Else
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+struct eligible {
+    int age;
+    char n[50];  
+};
+int main() {
+    struct eligible e;
+    scanf("%s", e.n);
+    scanf("%d", &e.age);
+    if (e.age <= 6)
+        printf("Vaccine Eligibility: No\n");
+    else
+        printf("Vaccine Eligibility: Yes\n");
+    printf("Name: %s\n", e.n);
+    printf("Age: %d\n", e.age);
+    return 0;
+}
+```
 
 
 Output:
 
-//paste your output here
-
+![WhatsApp Image 2025-04-26 at 14 40 45_7ef4fc15](https://github.com/user-attachments/assets/4cfd596a-60d4-434f-a57c-140a9359a815)
 
 Result:
 Thus, the program is verified successfully. 
@@ -44,18 +61,33 @@ Algorithm:
  
 Program:
 
-//type your code here
-
-
-
-
+```
+#include <stdio.h>
+struct numbers {
+    int a;
+    int b;
+};
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    result.b = n.a * n.b;
+    return result;
+}
+int main() {
+    struct numbers n, result;
+    printf("Enter value for a: ");
+    scanf("%d", &n.a);
+    printf("Enter value for b: ");
+    scanf("%d", &n.b);
+    result = add(n);
+    printf("Sum: %d\n", result.a);
+    printf("Product: %d\n", result.b);
+    return 0;
+}
+```
 Output:
 
-
-//paste your output here
-
-
-
+![WhatsApp Image 2025-04-26 at 14 41 21_2e3980e9](https://github.com/user-attachments/assets/205ce6f8-886b-45aa-91eb-5f8f2671cd63)
 
 Result:
 Thus, the program is verified successfully
@@ -86,25 +118,27 @@ Use scanf to input the file name into the name array.
  
 Program:
 
-//type your code here
-
-
-
-
+```
+#include <stdio.h>
+int main() {
+    char filename[100];
+    FILE *file;
+    printf("Enter the file name: ");
+    scanf("%s", filename);
+    file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Unable to open file %s\n", filename);
+    } else {
+        printf("File '%s' opened successfully!\n", filename);
+        fclose(file);
+        printf("File %s has been closed\n",filename);
+    }
+    return 0;
+}
+```
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
-
-
-
+![WhatsApp Image 2025-04-26 at 14 41 49_72cf3db9](https://github.com/user-attachments/assets/16305a63-261a-4789-bc93-ab4ba67bc8a5)
 
 Result:
 Thus, the program is verified successfully
@@ -133,20 +167,31 @@ Use scanf to input the file name into the name array and the number of strings i
  
 Program:
 
-//type your code here
-
-
-
-
+```
+#include <stdio.h>
+    int main() {
+    char filename[100];
+    FILE *file;
+    char text[200];
+    printf("Enter the file name: ");
+    scanf("%s", filename);
+    printf("Enter the text to insert into the file: ");
+    getchar();
+    fgets(text, sizeof(text), stdin);
+    file = fopen(filename, "a");
+    if (file == NULL) {
+        printf("Unable to open file %s\n", filename);
+    } else {
+        fputs(text, file);
+        printf("Text inserted successfully into '%s'.\n", filename);
+        fclose(file);
+    }
+    return 0;
+    }
+```
 Output:
 
-
-//paste your output here
-
-
-
-
-
+![WhatsApp Image 2025-04-26 at 14 42 39_9d90aaa7](https://github.com/user-attachments/assets/6627603d-32ae-4ef9-8484-2c6761d9537a)
 
 Result:
 Thus, the program is verified successfully
@@ -187,20 +232,38 @@ Algorithm:
 
 Program:
 
-//type your code here
-
-
-
-
+```
+#include <stdio.h>
+#include <stdlib.h>
+struct Subject {
+    char name[50];
+    int marks;
+};
+int main() {
+    int n, i;
+    struct Subject *s;
+    printf("Enter number of subjects: ");
+    scanf("%d", &n);
+    s = (struct Subject *)malloc(n * sizeof(struct Subject));
+    if (s == NULL) {
+        printf("Memory not allocated.\n");
+        return 1;
+    }
+    for (i = 0; i < n; i++) {
+        printf("Enter name and marks of subject %d: ", i + 1);
+        scanf("%s %d", s[i].name, &s[i].marks);
+    }
+    printf("\nSubject Details:\n");
+    for (i = 0; i < n; i++) {
+        printf("Name: %s, Marks: %d\n", s[i].name, s[i].marks);
+    }
+    free(s);
+    return 0;
+}
+```
 Output:
 
-
-//paste your output here
-
-
-
-
-
+![WhatsApp Image 2025-04-26 at 14 43 04_c26bc116](https://github.com/user-attachments/assets/0b9f1392-8cbb-4c28-a66c-9942cb79e49c)
 
 Result:
 Thus, the program is verified successfully
